@@ -1,0 +1,7 @@
+{
+    "DB_INSTANCE_ENDPOINT": "localhost",
+    "DB_INSTANCE_IDENTIFIER": "wilsontest-aws-dbserver",
+    "DB_INSTANCE_NAME": "testbench",
+    "DB_INSTANCE_PASSWORD": "",
+    "DB_INSTANCE_USERNAME": "root"
+}
