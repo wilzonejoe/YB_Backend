@@ -1,8 +1,5 @@
 import json
 
-from me.common_utils import date_time_encoder
-
-
 class common_response(object):
     """
     Object class for response
@@ -19,7 +16,7 @@ class common_response(object):
     def __init__(self, status_code = None, headers= None, body = None):
         self.status_code = status_code
         self.headers = headers
-        self.body = json.dumps(body, cls=date_time_encoder.DateTimeEncoder)
+        self.body = json.dumps(body, default=str)
 
     def dictate(self):
         return {"statusCode": self.status_code, "headers": self.headers, "body": self.body}

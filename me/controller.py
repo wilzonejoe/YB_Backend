@@ -20,21 +20,21 @@ def handler(event, context):
         # Route function to the right destination
         if info.httpMethod == 'POST':
             #route to add_me method to add myself to database, expected to return created if successful (201)
-            resp = me_functions.add_me(info.userId, info.username, info.body, resources)
+            resp = me_functions.add_me(info.user_id, info.username, info.body, resources)
             return successful_response.created_response(None, resp).dictate()
         elif info.httpMethod == 'GET':
             # route to get_me method to get myself to database, if none found then return not found exception (404)
-            resp = me_functions.get_me(info.userId, resources)
+            resp = me_functions.get_me(info.user_id, resources)
             if resp is None:
-                raise not_found_exception("User id : " + info.userId + " is not found")
+                raise not_found_exception("User id : " + info.user_id + " is not found")
             return successful_response.ok_response(None, resp).dictate()
         elif info.httpMethod == 'PUT':
             # route to update_me method to update myself to database, expected to return ok if successful (200)
-            resp = me_functions.update_me(info.userId, info.body, resources)
+            resp = me_functions.update_me(info.user_id, info.body, resources)
             return successful_response.ok_response(None, resp).dictate()
         elif info.httpMethod == 'DELETE':
             # route to delete_me method to delete myself to database, expected to return no content if successful (204)
-            resp = me_functions.delete_me(info.userId, resources)
+            resp = me_functions.delete_me(info.user_id, resources)
             return successful_response.no_content_response(None, resp).dictate()
     except bad_request_exception as e:
         # Throw bad request (400)

@@ -38,4 +38,4 @@ class conflict_response(failed_response):
 
 class internal_server_error_response(failed_response):
     def __init__(self, headers= None,  message = None):
-        super(internal_server_error_response,self).__init__(500, headers, "Internal server error : " + message)
+        super(internal_server_error_response,self).__init__(500, headers, "Internal server error : " + str(message))

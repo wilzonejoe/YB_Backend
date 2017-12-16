@@ -8,7 +8,5 @@ class information(object):
         """
         self.httpMethod = event["httpMethod"]
         self.body = event["body"]
-        self.userId = "695f5f6b-a7c9-4e98-8cc7-a98f977ca94b"
-        self.username = "username2"
-        # self.user_id = event["requestContext"]["authorizer"]["claims"]["sub"]
-        # self.user_name = event["requestContext"]["authorizer"]["claims"]["username"]
+        self.user_id = event["requestContext"]["authorizer"]["claims"]["sub"]
+        self.username = event["requestContext"]["authorizer"]["claims"]["username"]

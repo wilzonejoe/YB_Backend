@@ -79,6 +79,7 @@ class me_functions(object):
 
         json_object = json.loads(userData)
         update_user_data = user_data(**json_object)
+        update_user_data.validate()
 
         sql_script = sql_scripts.User["Update"].format(update_user_data.first_name,
                                                        update_user_data.last_name, update_user_data.phone_number,

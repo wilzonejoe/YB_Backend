@@ -10,7 +10,7 @@ class sql_functions(object):
             username = resources["DB_INSTANCE_USERNAME"]
             password = resources["DB_INSTANCE_PASSWORD"]
             db_name = resources["DB_INSTANCE_NAME"]
-            conn = pymysql.connect(rds_host, user=username, passwd=password, db=db_name, connect_timeout=5)
+            conn = pymysql.connect(rds_host, user=username, passwd=password, db=db_name, connect_timeout=5,  cursorclass=pymysql.cursors.DictCursor)
             return conn
         except Exception as e:
             raise Exception(str(resources["DB_INSTANCE_NAME"]))

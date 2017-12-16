@@ -13,7 +13,5 @@ class information(object):
         if event["pathParameters"] is not None:
             self.request_id = event["pathParameters"]["id"]
 
-        self.userId = "695f5f6b-a7c9-4e98-8cc7-a98f977ca94b"
-        self.username = "username2"
-        # self.user_id = event["requestContext"]["authorizer"]["claims"]["sub"]
-        # self.user_name = event["requestContext"]["authorizer"]["claims"]["username"]
+        self.user_id = event["requestContext"]["authorizer"]["claims"]["sub"]
+        self.user_name = event["requestContext"]["authorizer"]["claims"]["username"]
